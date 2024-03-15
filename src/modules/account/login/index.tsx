@@ -25,12 +25,12 @@ const Login = () => {
                     user = [val]
                 }
             }
-
             if (!user.length) {
                 setIsError("invalid login credential")
                 return;
             }
 
+            console.log("user i s", user)
             const isSamePassoword = bcrypt.compareSync(password, user[0].password);
 
             if (!isSamePassoword) {
@@ -46,10 +46,11 @@ const Login = () => {
             const token = (randomToken() + randomToken() + randomToken() + randomToken()).substring(2) //for remove '0'
 
             localStorage.setItem("token", token)
+            localStorage.setItem("user_id", user[0].id)
             setIsLoginSuccessfull(true)
             setTimeout(() => {
                 setIsLoginSuccessfull(false)
-                Navigate("/product")
+                Navigate("/")
             }, 1200);
 
         } else {

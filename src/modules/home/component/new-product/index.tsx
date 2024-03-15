@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
+import { getDiscountPercentage } from "../../../common/product-price";
 
 const Products = () => {
     const [products, setProducts] = useState<any[]>([])
@@ -15,19 +16,14 @@ const Products = () => {
     }
 
     const getProductList = async () => {
-        const response = await fetch(`https://dummyjson.com/products${activeCategory === "all products" ? "" : `/category/${activeCategory}`}?limit=8`)
-            .then(res => res.json())
+        const response = await fetch(`https://dummyjson.com/products${activeCategory === "all products" ? "" : `/category/${activeCategory}`}?limit=8&skip=${activeCategory === "all products" ? "10" : "0"}`).then(res => res.json())
 
         setProducts(response.products)
-
     }
 
     useEffect(() => {
-
         getProductList()
-
     }, [activeCategory])
-
 
     useEffect(() => {
         getCategoryList()
@@ -45,7 +41,7 @@ const Products = () => {
                         categories.map((v: string, i: number) =>
                             <div
                                 key={i}
-                                className={`mx-2 capitalize ${v == activeCategory && "font-semibold"}`}
+                                className={`mx-2 capitalize cursor-pointer ${v == activeCategory && "font-semibold"}`}
                                 onClick={() => setActiveCategory(v)}
                             >
                                 {v}
@@ -64,30 +60,32 @@ const Products = () => {
             </div>
 
             {/* Product List */}
-
             <div>
-                <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4  gap-5">
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-5">
                     {
                         products.length ?
 
                             products.map((v: any, i: number) => {
                                 return (
-                                    <div key={i}>
+                                    <Link className="border-b pb-1 border-black sm:border-b-0" to={`product/${v.id}`} key={i}>
                                         <img src={v.thumbnail} className="mx-auto h-44 object-cover" />
                                         <div>
                                             <div className="my-2 font-semibold">
                                                 {v.title}
                                             </div>
                                             <div className="pr-4 flex justify-between">
-                                                <div className="font-normal">
+                                                <div className="font-normal capitalize">
                                                     {v.category}
                                                 </div>
                                                 <div className="font-semibold">
-                                                    ₹ {v.price}
+                                                    <span className="text-gray-500 me-2 line-through ">₹ {v.price}</span>
+                                                    <span className="text-red-600">
+                                                        {getDiscountPercentage(v.price, v.discountPercentage)}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             })
                             :

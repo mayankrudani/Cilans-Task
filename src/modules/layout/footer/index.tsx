@@ -12,7 +12,7 @@ const Footer = () => {
 
     return (
         <>
-            <div className="lg:px-44 my-10">
+            <div className="lg:px-44 relative my-10">
                 <div className="mx-5 lg:mx-0 text-center lg:text-start grid lg:grid-cols-4 sm:grid-cols-2 gap-5">
 
                     <div className="flex flex-col justify-between items-between">
@@ -33,7 +33,7 @@ const Footer = () => {
                                 <img src="/linkedin.png" />
                             </div>
                             <div>
-                                <img src="dribbble.png" />
+                                <img src="/dribbble.png" />
                             </div>
                         </div>
                     </div>

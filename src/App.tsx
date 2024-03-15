@@ -5,6 +5,8 @@ import Footer from './modules/layout/footer';
 import HomeTemplate from './modules/home/templates';
 import CreateAccount from './modules/account/create-account/template';
 import Login from './modules/account/login';
+import ProductPreview from './modules/product/template';
+
 function App() {
 
   return (
@@ -15,7 +17,7 @@ function App() {
           <Route path="/" element={<HomeTemplate />} />
           <Route path='/create-account' element={<CreateAccount />} />
           <Route path='/login' element={<Login />} />
-          <Route path="/product" element={<div>Product Page</div>} />
+          <Route path="/product/:id" element={<ProductPreview />} />
           <Route path="/cart" element={<div>Cart Page</div>} />
           <Route path="*" element={<div className=''>No page found</div>} />
 
