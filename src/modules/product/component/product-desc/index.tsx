@@ -23,6 +23,8 @@ const ProductDescription = ({ product }: any) => {
         if (!cartDetails) {
             const cartItems = {
                 product_id: product.id,
+                title: product.title,
+                thumbnail: product.thumbnail,
                 unit_price: unitPrice,
                 quantity: quantity,
                 sub_total: unitPrice * quantity
@@ -47,6 +49,8 @@ const ProductDescription = ({ product }: any) => {
                     isItemsPresent = true
                     return {
                         product_id: v.product_id,
+                        title: v.title,
+                        thumbnail: v.thumbnail,
                         unit_price: v.unit_price,
                         quantity: v.quantity + 1,
                         sub_total: (v.quantity + 1) * v.unit_price
@@ -57,6 +61,8 @@ const ProductDescription = ({ product }: any) => {
 
             const newItems = {
                 product_id: product.id,
+                title: product.title,
+                thumbnail: product.thumbnail,
                 unit_price: unitPrice,
                 quantity: quantity,
                 sub_total: unitPrice * quantity

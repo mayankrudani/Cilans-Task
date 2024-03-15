@@ -6,6 +6,8 @@ import HomeTemplate from './modules/home/templates';
 import CreateAccount from './modules/account/create-account/template';
 import Login from './modules/account/login';
 import ProductPreview from './modules/product/template';
+import CartLayout from './modules/cart/template';
+import NotFoundPage from './modules/not-found';
 
 function App() {
 
@@ -18,11 +20,11 @@ function App() {
           <Route path='/create-account' element={<CreateAccount />} />
           <Route path='/login' element={<Login />} />
           <Route path="/product/:id" element={<ProductPreview />} />
-          <Route path="/cart" element={<div>Cart Page</div>} />
-          <Route path="*" element={<div className=''>No page found</div>} />
+          <Route path="/cart" element={<CartLayout />} />
+          <Route path="*" element={<NotFoundPage />} />
 
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </>
   )
