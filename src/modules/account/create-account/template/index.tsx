@@ -7,18 +7,18 @@ import { useNavigate } from "react-router-dom";
 const CreateAccount = () => {
     const [formValue, setFormValue] = useState({ name: '', email: '', contact: '', password: '', confirmPassword: '' })
     const [isSuccess, setIsSuccess] = useState<boolean>(false)
-
+    const [isError, setIsError] = useState<string | undefined>('')
 
     const Navigate = useNavigate()
 
     const HandlesSubmit = async (e: any) => {
         e.preventDefault()
+        setIsError('')
         const { name, contact, email, password, confirmPassword } = formValue
 
         const localStorageData: any = localStorage.getItem("users") || []
-
         const userData = localStorageData.length ? JSON.parse(localStorageData) : localStorageData
-        console.log("user data is ", userData)
+
         // check same contact numberr is not present
         if (userData?.length) {
             let isContact = false
@@ -29,14 +29,14 @@ const CreateAccount = () => {
                 }
             }
             if (isContact) {
-                alert("this Contact is already present")
+                setIsError("This contact user is already present,Please add another contact")
                 return;
             }
         }
 
-        // checck both password is sames
+        // checck both password is same or not
         if (!(password === confirmPassword)) {
-            alert("Please add same password")
+            setIsError("Please add same password")
             return;
         }
 
@@ -60,13 +60,13 @@ const CreateAccount = () => {
     }
 
     return (
-        <section className="bg-[#F1F1F1]">
+        <div className="bg-[#F1F1F1] relative pt-10">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                             Create An Account
-                        </h1>   
+                        </h1>
                         <form className="space-y-4 md:space-y-4" onSubmit={HandlesSubmit}>
                             <div className="grid grid-cols-2 gap-x-3">
                                 <div>
@@ -129,6 +129,12 @@ const CreateAccount = () => {
                                 </div>
                             </div>
                             {
+                                isError &&
+                                <div className="bg-red-700 text-white px-5 py-3 rounded">
+                                    {isError}
+                                </div>
+                            }
+                            {
                                 isSuccess &&
                                 <div className="bg-green-700 text-white px-5 py-3 rounded">
                                     Customer Create Successfully
@@ -145,7 +151,7 @@ const CreateAccount = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

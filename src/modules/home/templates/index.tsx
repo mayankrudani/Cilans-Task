@@ -1,10 +1,13 @@
-import ShopNowProduct from "../component/product";
+import ShopNowProduct from "../component/first-banner";
 import BrandBanner from "../component/brand-banner";
-const HomeTemplate = ()=>{
-    return(
+import Products from "../component/new-product";
+
+const HomeTemplate = () => {
+    return (
         <div>
-            <ShopNowProduct/>
-            <BrandBanner/>
+            <ShopNowProduct />
+            <Products />
+            <BrandBanner />
         </div>
     )
 }

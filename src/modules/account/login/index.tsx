@@ -6,11 +6,13 @@ import bcrypt from "bcryptjs";
 const Login = () => {
     const [formValue, setFormValue] = useState({ contact: '', password: '' })
     const [isLoginSuccessful, setIsLoginSuccessfull] = useState<boolean>(false)
+    const [isError, setIsError] = useState<string | undefined>('')
 
     const Navigate = useNavigate()
 
     const HandlesSubmit = async (e: any) => {
         e.preventDefault()
+        setIsError('')
         const { contact, password } = formValue
         const localStorageData: any = localStorage.getItem("users") || []
 
@@ -25,14 +27,14 @@ const Login = () => {
             }
 
             if (!user.length) {
-                alert("invalid login credential ")
+                setIsError("invalid login credential")
                 return;
             }
 
             const isSamePassoword = bcrypt.compareSync(password, user[0].password);
 
             if (!isSamePassoword) {
-                alert("Worng password, Please enter Currect password ")
+                setIsError("Worng password, Please enter Currect password ")
                 return;
             }
 
@@ -44,10 +46,7 @@ const Login = () => {
             const token = (randomToken() + randomToken() + randomToken() + randomToken()).substring(2) //for remove '0'
 
             localStorage.setItem("token", token)
-
-
             setIsLoginSuccessfull(true)
-
             setTimeout(() => {
                 setIsLoginSuccessfull(false)
                 Navigate("/product")
@@ -56,11 +55,10 @@ const Login = () => {
         } else {
             alert("Pleases Create a new account")
         }
-
-
     }
+
     return (
-        <section className="bg-[#F1F1F1]">
+        <section className="bg-[#F1F1F1] relative">
             <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-20">
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -90,6 +88,13 @@ const Login = () => {
                                     onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
                                     placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                             </div>
+
+                            {
+                                isError &&
+                                <div className="bg-red-700 text-white px-5 py-3 rounded">
+                                    {isError}
+                                </div>
+                            }
                             {
                                 isLoginSuccessful &&
                                 <div className="bg-green-700 text-white px-5 py-3 rounded">
