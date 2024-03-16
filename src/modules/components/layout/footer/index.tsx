@@ -15,8 +15,8 @@ const Footer = () => {
             <div className="lg:px-44 relative my-10">
                 <div className="mx-5 lg:mx-0 text-center lg:text-start grid lg:grid-cols-4 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col justify-between items-between">
-                        <img  src="/CORAL.png" className="w-44 mx-auto lg:mx-0" />
-                        <div className=" py-5">
+                        <img src="/CORAL.png" className="w-44 mx-auto lg:mx-0" />
+                        <div className="py-5">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua
@@ -101,7 +101,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            
+
             <div className="bg-[#1E2832] lg:px-44">
                 <div className="py-4 flex justify-between text-white">
                     <div>
@@ -111,8 +111,13 @@ const Footer = () => {
                         <img src="/icons_payment.png" />
                     </div>
                     <div className="cursor-pointer">
-                        <div onClick={() => handleScrollTop()}>
+                        <div className="flex items-center justify-center" onClick={() => handleScrollTop()}>
                             Scroll to top
+                            
+                                <svg className="ms-3 mt-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
+                                    <path d="M4 6.66666L8 2.66666M8 2.66666L12 6.66666M8 2.66666L8 12.6667" stroke="white" stroke-linecap="round" />
+                                </svg>
+                        
                         </div>
                     </div>
                 </div>

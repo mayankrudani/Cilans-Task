@@ -115,7 +115,7 @@ const CartLayout = (props: any) => {
                     <div className="py-10 text-center">
                         <div className="my-4 font-semibold">
                             No Cart Items present, Please add cart items
-                        </div>z
+                        </div>
                         <button onClick={() => naviagate("/")} className="text-white bg-black border-0 px-3 py-1">
                             Go to shop
                         </button>

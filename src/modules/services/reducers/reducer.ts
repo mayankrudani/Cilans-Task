@@ -12,13 +12,9 @@ export default async function cartitems(state: any = InitialState(), action: any
     switch (action.type) {
 
         case ADD_TO_CART:
-            const token = localStorage.getItem("token")
+            
             const userId = localStorage.getItem("user_id")
             const product = action.data
-            if (!token) {
-                alert("Please login to add product in cart")
-                return;
-            }
 
             const unitPrice: number = getDiscountPercentage(product.price, product.discountPercentage)
             const quantity = 1
@@ -115,8 +111,7 @@ export default async function cartitems(state: any = InitialState(), action: any
                     cart_items: updatedCart
                 }
                 localStorage.setItem("cart", JSON.stringify(updatedCartDetails))
-                const RemoveCartItemsResult = await InitialState()
-                return RemoveCartItemsResult
+                return state;
             }
 
         // add  more items in cart

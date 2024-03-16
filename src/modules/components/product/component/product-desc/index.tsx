@@ -5,6 +5,12 @@ const ProductDescription = ({ product, addToCartHandler }: any) => {
     const [isSsuccess, setIsSuccess] = useState<boolean>(false)
 
     const addToCart = () => {
+        const token = localStorage.getItem("token")
+        if (!token) {
+            alert("Please login to add product in cart")
+            return;
+        }
+        
         addToCartHandler(product)
         setIsSuccess(true)
         setTimeout(() => {

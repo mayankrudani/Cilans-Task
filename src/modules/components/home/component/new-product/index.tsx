@@ -67,8 +67,30 @@ const Products = () => {
                         products.length ?
                             products.map((v: any, i: number) => {
                                 return (
-                                    <Link className="border-b pb-1 border-black sm:border-b-0" to={`product/${v.id}`} key={i}>
-                                        <img src={v.thumbnail} className="mx-auto h-44 object-cover" />
+                                    <Link className="group border-b pb-1 border-black sm:border-b-0" to={`product/${v.id}`} key={i}>
+                                        <div className="relative overflow-hidden ">
+                                            <img src={v.thumbnail} className="mx-auto h-44 object-cover" />
+                                            <div className={`bg-black py-2 px-3 absolute -bottom-10 left-0 right-0 flex justify-between items-center group-hover:bottom-0 tarnsition-all duration-300`}>
+                                                <div className="flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 26 19" fill="none">
+                                                        <path d="M4.30766 11.8471L12.4872 17.6694C12.6546 17.7886 12.7383 17.8482 12.8295 17.8712C12.9096 17.8913 12.9935 17.8913 13.0735 17.8712C13.1648 17.8482 13.2485 17.7886 13.4159 17.6694L21.5954 11.8471C24.6548 9.66935 24.9976 5.25373 22.311 2.6299C19.8716 0.247387 15.8563 0.721629 14.0389 3.60689L13.5899 4.31983C13.294 4.78964 12.6091 4.78964 12.3132 4.31983L11.8641 3.60689C10.0468 0.721628 6.0315 0.247387 3.59204 2.6299C0.905486 5.25373 1.24832 9.66935 4.30766 11.8471Z" stroke="white" strokeWidth="2" />
+                                                    </svg>
+
+                                                    <svg className="ms-2" xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 26 19" fill="none">
+                                                        <ellipse cx="10.7542" cy="7.8" rx="8.97394" ry="6.8" stroke="white" strokeWidth="2" />
+                                                        <path d="M24.2151 18L19.7281 14.6" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                                    </svg>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 33 24" fill="none">
+                                                        <path d="M11.4227 12L11.4227 9.27879C11.4227 6.36339 13.7861 4 16.7015 4V4C19.6169 4 21.9803 6.3634 21.9803 9.27879L21.9803 12" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                                        <path d="M5.75217 12.5627C5.93852 10.8682 6.03169 10.021 6.60141 9.51049C7.17112 9 8.02348 9 9.72819 9H23.6749C25.3796 9 26.232 9 26.8017 9.51049C27.3714 10.021 27.4646 10.8682 27.6509 12.5627L28.3348 18.7814C28.4487 19.8169 28.5057 20.3347 28.2076 20.6673C27.9095 21 27.3886 21 26.3468 21H7.05629C6.0145 21 5.49361 21 5.19553 20.6673C4.89745 20.3347 4.95439 19.8169 5.06827 18.7814L5.75217 12.5627Z" stroke="white" strokeWidth="2" />
+                                                    </svg>
+                                                    <div className="ms-2 text-white text-[12px]">Sop Now</div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                         <div>
                                             <div className="my-2 font-semibold">
                                                 {v.title}
