@@ -15,13 +15,13 @@ const ShopNowProduct = () => {
                 </div>
                 <div className="w-44 lg:w-72 mx-auto lg:mx-0 relative mt-10 lg:mt-0">
                     <div className="relative z-10">
-                        <img className="rounded-tl-[100px] rounded-br-[100px]" src="/engin-akyurt-jaZoffxg1yc-unsplash.png" alt="Product Image" />
+                        <img className="rounded-tl-[100px] rounded-br-[100px]" src="/assets/images/engin-akyurt-jaZoffxg1yc-unsplash.png" alt="Product Image" />
                     </div>
                     <div className="w-44 lg:w-72 h-full rounded-tl-[100px] rounded-br-[100px] border-2 border-[#AFAFAF] absolute top-2 -right-2 z-[0]"></div>
                 </div>
             </div>
             <div className="absolute top-52 right-0 w-44 hidden lg:block">
-                <img src="/frame.png" alt="frame" />
+                <img src="/assets/images/frame.png" alt="frame" />
             </div>
         </div>
     )

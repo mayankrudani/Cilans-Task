@@ -142,9 +142,9 @@ const CreateAccount = () => {
                             }
                             <button type="submit" className="w-full text-black bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account?
+                                Already have an account? 
                                 <Link to={"/login"} className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                                    Login here
+                                    {" "}Login here
                                 </Link>
                             </p>
                         </form>

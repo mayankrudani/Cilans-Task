@@ -15,24 +15,24 @@ const Footer = () => {
             <div className="lg:px-44 relative my-10">
                 <div className="mx-5 lg:mx-0 text-center lg:text-start grid lg:grid-cols-4 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col justify-between items-between">
-                        <img src="/CORAL.png" className="w-44 mx-auto lg:mx-0" />
+                        <img src="/assets/images/CORAL.png" className="w-44 mx-auto lg:mx-0" />
                         <div className="py-5">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua
                         </div>
-                        <div className="flex justify-between ">
+                        <div className="grid grid-cols-4">
                             <div>
-                                <img src="/facebook.png" />
+                                <img src="/assets/images/facebook.png" />
                             </div>
                             <div>
-                                <img src="/twitter.png" />
+                                <img src="/assets/images/twitter.png" />
                             </div>
                             <div>
-                                <img src="/linkedin.png" />
+                                <img src="/assets/images/linkedin.png" />
                             </div>
                             <div>
-                                <img src="/dribbble.png" />
+                                <img src="/assets/images/dribbble.png" />
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ const Footer = () => {
                         © 2022 Coral , Inc.
                     </div>
                     <div>
-                        <img src="/icons_payment.png" className="mx-auto sm:mx-0" alt="payment icon" />
+                        <img src="/assets/images/icons_payment.png" className="mx-auto sm:mx-0" alt="payment icon" />
                     </div>
                     <div className="cursor-pointer">
                         <div className="flex items-center justify-center" onClick={() => handleScrollTop()}>

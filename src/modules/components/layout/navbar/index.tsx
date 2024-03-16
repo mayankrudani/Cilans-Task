@@ -52,7 +52,7 @@ const Navbar = (props: any) => {
                             <circle cx="12" cy="8" r="4" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                         <span className="ms-1">
-                            login
+                            Login
                         </span>
                     </Link>
                     <Link to={"create-account"} className="flex items-center">
@@ -87,7 +87,7 @@ const Navbar = (props: any) => {
                                 <circle cx="12" cy="8" r="4" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
                             </svg>
                             <span className="ms-1">
-                                login
+                                Login
                             </span>
                         </Link>
                         <Link to={"create-account"} className="flex items-center">
