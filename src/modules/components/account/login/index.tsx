@@ -30,9 +30,7 @@ const Login = () => {
                 return;
             }
 
-            console.log("user i s", user)
             const isSamePassoword = bcrypt.compareSync(password, user[0].password);
-
             if (!isSamePassoword) {
                 setIsError("Worng password, Please enter Currect password ")
                 return;

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import CartLayout from "../../cart/template";
+import CartLayout from "../../components/cart/template";
 import { AddToCart, RemoveToCart, UpdateToCart } from "../../services/actions/action";
 
 const mapStateToProps = (state: any) => ({

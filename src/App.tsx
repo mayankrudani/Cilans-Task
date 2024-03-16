@@ -5,7 +5,7 @@ import Footer from './modules/components/layout/footer';
 
 import HomeTemplate from './modules/components/home/templates';
 import CreateAccount from './modules/components/account/create-account/template';
-import Login from './modules/components/account/login/template';
+import Login from './modules/components/account/login';
 import ProductPreview from './modules/container/product';
 import CartLayout from './modules/container/cart';
 
