@@ -12,14 +12,14 @@ const Navbar = (props: any) => {
 
     return (
         <nav className="lg:px-40  bg-[#F1F1F1] ">
-            <div className="p-5 border-b flex justify-between border-[#E3E3E3] ">
+            <div className="p-5 border-b flex items-center justify-between border-[#E3E3E3] ">
                 <div className="flex items-center hidden lg:block">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                         <circle cx="7" cy="7" r="6" stroke="#0B0B0B" strokeWidth="2" />
                         <path d="M16 16L13 13" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
                     </svg>
                 </div>
-                <div className=" w-full lg:w-min flex items-center justify-between">
+                <div className="w-full lg:w-min flex items-center justify-between">
                     <div className="flex items-center justify-between">
                         <svg className="hidden sm:block" xmlns="http://www.w3.org/2000/svg" width="31" height="15" viewBox="0 0 31 15" fill="none">
                             <path d="M8.35355 7.5L15.5 0.353554L22.6464 7.5L15.5 14.6464L8.35355 7.5Z" stroke="black" strokeWidth="0.5" />
@@ -67,7 +67,7 @@ const Navbar = (props: any) => {
                         </span>
                         {
                             CartItems.length ?
-                                <div className="rounded-full bg-red-700 px-2 text-white">
+                                <div className="absolute top-0 -right-6 rounded-full bg-red-700 px-2 text-white">
                                     {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
                                 :
                                 <div></div>
@@ -97,8 +97,15 @@ const Navbar = (props: any) => {
                                 <path d="M8 12L8 8C8 5.79086 9.79086 4 12 4V4C14.2091 4 16 5.79086 16 8L16 12" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
                                 <path d="M3.69435 12.6678C3.83942 10.9269 3.91196 10.0565 4.48605 9.52824C5.06013 9 5.9336 9 7.68053 9H16.3195C18.0664 9 18.9399 9 19.514 9.52824C20.088 10.0565 20.1606 10.9269 20.3057 12.6678L20.8195 18.8339C20.904 19.8474 20.9462 20.3542 20.6491 20.6771C20.352 21 19.8435 21 18.8264 21H5.1736C4.15655 21 3.64802 21 3.35092 20.6771C3.05382 20.3542 3.09605 19.8474 3.18051 18.8339L3.69435 12.6678Z" stroke="#0B0B0B" strokeWidth="2" />
                             </svg>
-                            <span className="ms-1">
+                            <span className="ms-1 relative">
                                 Cart
+                            {
+                            CartItems.length ?
+                                <div className="absolute top-0 -right-6 rounded-full bg-red-700 px-2 text-white">
+                                    {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
+                                :
+                                <div></div>
+                        }
                             </span>
                         </Link>
                     </div>
