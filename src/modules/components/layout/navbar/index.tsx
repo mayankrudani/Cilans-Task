@@ -1,9 +1,14 @@
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = (props: any) => {
     const [showCategories, setShowCategories] = useState<boolean>(false)
+    const [CartItems, setCartItems] = useState<any>([])
+    
+    useEffect(() => {
+        Promise.resolve(props.data).then(res => setCartItems(res?.cart_items ? res.cart_items : []))
+    }, [props])
 
     return (
         <nav className="lg:px-40  bg-[#F1F1F1] ">
@@ -60,11 +65,18 @@ const Navbar = () => {
                         <span className="ms-1">
                             Cart
                         </span>
+                        {
+                            CartItems.length ?
+                                <div className="rounded-full bg-red-700 px-2 text-white">
+                                    {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
+                                :
+                                <div></div>
+                        }
                     </Link>
                 </div>
             </div>
             <div className="lg:mt-6 text-sm">
-                <div className={`ps-3 bg-white lg:bg-transparent lg:h-max flex flex-col lg:flex-row justify-between
+                <div className={`ps-3 bg-white overflow-hidden lg:bg-transparent lg:h-max flex flex-col lg:flex-row justify-between
                 ${showCategories ? "h-[300px]" : "h-0"} transition-all duration-500
                 `}>
                     <div className=" block lg:hidden mt-3 grid grid-cols-3 gap-x-4 text-sm">

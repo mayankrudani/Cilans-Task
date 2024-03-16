@@ -8,6 +8,7 @@ const Products = () => {
     const [activeCategory, setActiveCategory] = useState<string>("all products")
 
 
+    // Get Category List
     const getCategoryList = async () => {
         const Category = await fetch('https://dummyjson.com/products/categories?limit=10')
             .then(res => res.json())
@@ -15,9 +16,9 @@ const Products = () => {
         setCategories(["all products", ...cat])
     }
 
+    // Get PRoduct List
     const getProductList = async () => {
         const response = await fetch(`https://dummyjson.com/products${activeCategory === "all products" ? "" : `/category/${activeCategory}`}?limit=8&skip=${activeCategory === "all products" ? "10" : "0"}`).then(res => res.json())
-
         setProducts(response.products)
     }
 
@@ -64,7 +65,6 @@ const Products = () => {
                 <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-5">
                     {
                         products.length ?
-
                             products.map((v: any, i: number) => {
                                 return (
                                     <Link className="border-b pb-1 border-black sm:border-b-0" to={`product/${v.id}`} key={i}>
@@ -74,7 +74,7 @@ const Products = () => {
                                                 {v.title}
                                             </div>
                                             <div className="pr-4 flex justify-between">
-                                                <div className="font-normal capitalize">
+                                                <div className="font-normal text-[#777777] capitalize">
                                                     {v.category}
                                                 </div>
                                                 <div className="font-semibold">

@@ -1,9 +1,7 @@
 
-
-
 const NotFoundPage = () => {
     return (
-        <div className="py-20 ps-10 relative bg-[#F1F1F1] block">
+        <div className="py-20 text-2xl font-semibold text-center bg-[#F1F1F1] block">
             404 No Page Found
         </div>
     )

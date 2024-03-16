@@ -1,13 +1,15 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './modules/layout/navbar';
-import Footer from './modules/layout/footer';
-import HomeTemplate from './modules/home/templates';
-import CreateAccount from './modules/account/create-account/template';
-import Login from './modules/account/login';
-import ProductPreview from './modules/product/template';
-import CartLayout from './modules/cart/template';
-import NotFoundPage from './modules/not-found';
+import Navbar from './modules/container/navbar';
+import Footer from './modules/components/layout/footer';
+
+import HomeTemplate from './modules/components/home/templates';
+import CreateAccount from './modules/components/account/create-account/template';
+import Login from './modules/components/account/login/template';
+import ProductPreview from './modules/container/product';
+import CartLayout from './modules/container/cart';
+
+import NotFoundPage from './modules/components/not-found';
 
 function App() {
 

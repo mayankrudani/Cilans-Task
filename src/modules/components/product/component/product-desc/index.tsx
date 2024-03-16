@@ -1,94 +1,21 @@
 import { useState } from "react";
 import { getDiscountPercentage } from "../../../common/product-price";
 
-
-
-const ProductDescription = ({ product }: any) => {
+const ProductDescription = ({ product, addToCartHandler }: any) => {
     const [isSsuccess, setIsSuccess] = useState<boolean>(false)
 
-    const addToCartHandler = () => {
-        const token = localStorage.getItem("token")
-        const userId = localStorage.getItem("user_id")
-        if (!token) {
-            alert("Please login to add product in cart")
-            return;
-        }
-
-        const unitPrice: number = getDiscountPercentage(product.price, product.discountPercentage)
-        const quantity = 1
-
-        const getCart: any = localStorage.getItem("cart")
-        const cartDetails = getCart ? JSON.parse(getCart) : getCart
-
-        if (!cartDetails) {
-            const cartItems = {
-                product_id: product.id,
-                title: product.title,
-                thumbnail: product.thumbnail,
-                unit_price: unitPrice,
-                quantity: quantity,
-                sub_total: unitPrice * quantity
-            }
-
-            const cart = {
-                user_id: userId,
-                total: cartItems.sub_total,
-                cart_items: [
-                    cartItems
-                ]
-            }
-            localStorage.setItem("cart", JSON.stringify(cart))
-        }
-        else {
-            let isItemsPresent = false
-
-            const cart_items = cartDetails.cart_items
-
-            const UpdateCartItems = cart_items.map((v: any) => {
-                if (v.product_id === product.id) {
-                    isItemsPresent = true
-                    return {
-                        product_id: v.product_id,
-                        title: v.title,
-                        thumbnail: v.thumbnail,
-                        unit_price: v.unit_price,
-                        quantity: v.quantity + 1,
-                        sub_total: (v.quantity + 1) * v.unit_price
-                    }
-                }
-                return v
-            })
-
-            const newItems = {
-                product_id: product.id,
-                title: product.title,
-                thumbnail: product.thumbnail,
-                unit_price: unitPrice,
-                quantity: quantity,
-                sub_total: unitPrice * quantity
-            }
-
-            const FinalCartItems = isItemsPresent ? UpdateCartItems : [...UpdateCartItems, newItems]
-            const totalPrice = FinalCartItems.reduce((ini: number, curr: any) => ini + curr.sub_total, 0)
-            const updatedCart = {
-                user_id: userId,
-                total: totalPrice,
-                cart_items: FinalCartItems
-            }
-
-            console.log("updated cart items is ", updatedCart)
-            localStorage.setItem("cart", JSON.stringify(updatedCart))
-        }
-
+    const addToCart = () => {
+        addToCartHandler(product)
         setIsSuccess(true)
         setTimeout(() => {
             setIsSuccess(false)
         }, 1200);
     }
+
     return (
         <div className="text-center lg:text-start lg:ps-10 capitalize sticky h-full top-12">
 
-            <div className="my-3 capitalize ">{product.category}</div>
+            <div className="my-3 capitalize">{product.category}</div>
             <div className="text-3xl font-semibold">{product.title}</div>
             <div className="mt-3">{product.description}</div>
 
@@ -111,7 +38,7 @@ const ProductDescription = ({ product }: any) => {
                 Available Stock: {product.stock}
             </div>
 
-            <button onClick={() => addToCartHandler()} className="border-0 px-4 py-1 bg-black text-white">Add to cart</button>
+            <button onClick={() => addToCart()} className="border-0 px-4 py-1 bg-black text-white">Add to cart</button>
 
             {isSsuccess &&
                 <div

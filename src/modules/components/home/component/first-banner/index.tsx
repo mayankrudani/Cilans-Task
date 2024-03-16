@@ -1,7 +1,7 @@
 
 const ShopNowProduct = () => {
     return (
-        <div className="relative bg-[#F1F1F1] py-10 px-5 lg:px-40">
+        <div className="bg-[#F1F1F1] py-10 px-5 lg:px-40">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-44">
                 <div>
                     <div className="text-4xl lg:text-6xl font-normal my-8">Collections</div>

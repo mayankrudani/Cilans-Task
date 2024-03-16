@@ -1,7 +1,7 @@
 
 const BrandBanner = () => {
     return (
-        <div className="relative bg-[url('/brand-banner.png')] bg-cover  bg-no-repeat lg:min-h-[650px] w-100">
+        <div className="relative bg-[url('/brand-banner.png')] bg-cover bg-no-repeat lg:min-h-[650px] w-100">
             <div className="lg:absolute top-10 right-0">
                 <img src="/zara_logo_light.png" alt="zara logo" />
             </div>
