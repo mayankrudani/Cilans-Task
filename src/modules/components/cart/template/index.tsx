@@ -101,10 +101,10 @@ const CartLayout = (props: any) => {
                             {cartDetails.cart_items.length ?
                                 <button
                                     onClick={() => placeOrderHandler()}
-                                    className="px-5 py-2 text-white bg-black  disabled:opacity-50 border-0"
+                                    className="px-5 py-2 text-white bg-black disabled:opacity-50 border-0"
                                     disabled={isDisable}
                                 >
-                                    Place Order
+                                    {!isDisable ? "Place Order" : "Loading. . . ."}
                                 </button>
                                 :
                                 <div></div>

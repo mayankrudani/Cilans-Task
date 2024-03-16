@@ -111,7 +111,8 @@ export default async function cartitems(state: any = InitialState(), action: any
                     cart_items: updatedCart
                 }
                 localStorage.setItem("cart", JSON.stringify(updatedCartDetails))
-                return state;
+                const RemoveCartResult = await InitialState()
+                return RemoveCartResult;
             }
 
         // add  more items in cart
@@ -133,7 +134,6 @@ export default async function cartitems(state: any = InitialState(), action: any
                 })
 
                 const updatedTotalAmount = updatedCartItems.reduce((init: number, curr: any) => init + curr.sub_total, 0)
-
                 const updatedCartDetails = {
                     user_id: cartDetails.user_id,
                     total: updatedTotalAmount,
