@@ -14,13 +14,11 @@ const BrandBanner = () => {
                         reopened Giorgio Armani boutique in Los
                         Angeles.
                     </div>
-                    <button className="bg-white text-black font-semibold px-5 p-2 border-0">
+                    <a href="#newProduct" className="bg-white text-black font-semibold px-5 p-2 border-0">
                         See Collection
-                    </button>
+                    </a>
                 </div>
-
             </div>
-
         </div>
     )
 }

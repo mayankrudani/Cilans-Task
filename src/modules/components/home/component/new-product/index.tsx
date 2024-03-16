@@ -32,7 +32,7 @@ const Products = () => {
 
     return (
 
-        <div className="px-10 lg:px-20 py-10">
+        <div id="newProduct" className="px-10 lg:px-20 py-10">
             <div className="text-5xl text-center w-full font-semi">New Products</div>
 
             {/* Categories */}

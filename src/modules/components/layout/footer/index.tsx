@@ -21,7 +21,7 @@ const Footer = () => {
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua
                         </div>
-                        <div className="flex justify-evenly ">
+                        <div className="flex justify-between ">
                             <div>
                                 <img src="/facebook.png" />
                             </div>
@@ -103,21 +103,19 @@ const Footer = () => {
             </div>
 
             <div className="bg-[#1E2832] lg:px-44">
-                <div className="py-4 flex justify-between text-white">
+                <div className="py-4 text-center sm:*:my-0 *:my-1 sm:flex justify-between text-white">
                     <div>
                         © 2022 Coral , Inc.
                     </div>
                     <div>
-                        <img src="/icons_payment.png" />
+                        <img src="/icons_payment.png" className="mx-auto sm:mx-0" alt="payment icon" />
                     </div>
                     <div className="cursor-pointer">
                         <div className="flex items-center justify-center" onClick={() => handleScrollTop()}>
                             Scroll to top
-                            
-                                <svg className="ms-3 mt-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
-                                    <path d="M4 6.66666L8 2.66666M8 2.66666L12 6.66666M8 2.66666L8 12.6667" stroke="white" stroke-linecap="round" />
-                                </svg>
-                        
+                            <svg className="ms-3 mt-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6.66666L8 2.66666M8 2.66666L12 6.66666M8 2.66666L8 12.6667" stroke="white" strokeLinecap="round" />
+                            </svg>
                         </div>
                     </div>
                 </div>

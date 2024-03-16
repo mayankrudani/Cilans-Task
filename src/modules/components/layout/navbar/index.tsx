@@ -11,10 +11,11 @@ const Navbar = (props: any) => {
     }, [props])
 
     return (
-        <nav className="lg:px-40  bg-[#F1F1F1] ">
+        <nav className="lg:px-40 bg-[#F1F1F1] z-50 ">
             <div className="p-5 border-b flex items-center justify-between border-[#E3E3E3] ">
-                <div className="flex items-center hidden lg:block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                <div className="relative flex items-center hidden lg:block">
+                    <input className="bg-transparent py-1" readOnly />
+                    <svg className="absolute top-2 left-2" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                         <circle cx="7" cy="7" r="6" stroke="#0B0B0B" strokeWidth="2" />
                         <path d="M16 16L13 13" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
                     </svg>
