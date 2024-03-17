@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import bcrypt from "bcryptjs"
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
+import Eye from "../../../common/utils/eye";
+import EyeOff from "../../../common/utils/eye-off";
 
 const CreateAccount = () => {
     const [formValue, setFormValue] = useState({ name: '', email: '', contact: '', password: '', confirmPassword: '' })
     const [isSuccess, setIsSuccess] = useState<boolean>(false)
+    const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
     const [isError, setIsError] = useState<string | undefined>('')
 
     const Navigate = useNavigate()
@@ -64,10 +67,10 @@ const CreateAccount = () => {
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight text-gray-900 md:text-2xl">
-                            Create An Account
+                            Create New Account
                         </h1>
                         <form className="space-y-4 md:space-y-4" onSubmit={HandlesSubmit}>
-                            <div className="grid grid-cols-2 gap-x-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-x-3">
                                 <div>
                                     <label htmlFor="name" className="block mb-1 text-sm font-medium text-gray-900">
                                         Name
@@ -120,28 +123,39 @@ const CreateAccount = () => {
                                     Password
                                     <span className="text-red-600"> *</span>
                                 </label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    value={formValue.password}
-                                    onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                    placeholder="••••••••"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    required />
+                                <div className="relative">
+                                    <input
+                                        type={isShowPassword ? "text" : "password"}
+                                        name="password"
+                                        id="password"
+                                        value={formValue.password}
+                                        onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
+                                        placeholder="••••••••"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        required />
+                                    <div onClick={() => setIsShowPassword(!isShowPassword)} className="absolute top-3.5 right-4">
+                                        {isShowPassword ? <EyeOff /> : <Eye />}
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Confirm Password
                                     <span className="text-red-600"> *</span>
                                 </label>
-                                <input
-                                    type="password"
-                                    name="confirmPassword"
-                                    id="confirm-password"
-                                    value={formValue.confirmPassword}
-                                    onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                    placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                <div className="relative">
+                                    <input
+                                        type={isShowPassword ? "text" : "password"}
+                                        name="confirmPassword"
+                                        id="confirm-password"
+                                        value={formValue.confirmPassword}
+                                        onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
+                                        placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                    <div onClick={() => setIsShowPassword(!isShowPassword)}
+                                        className="absolute top-3.5 right-4">
+                                        {isShowPassword ? <EyeOff /> : <Eye />}
+                                    </div>
+                                </div>
                             </div>
                             <div className="flex items-start">
                                 <div className="flex items-center h-5">

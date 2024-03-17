@@ -68,7 +68,7 @@ const Navbar = (props: any) => {
                         </span>
                         {
                             CartItems.length ?
-                                <div className="absolute top-0 -right-6 rounded-full bg-red-700 px-2 text-white">
+                                <div className="absolute -top-2 -right-8 w-7 h-7 flex items-center justify-center rounded-full bg-red-700 text-white">
                                     {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
                                 :
                                 <div></div>
@@ -76,11 +76,11 @@ const Navbar = (props: any) => {
                     </Link>
                 </div>
             </div>
-            <div className="lg:mt-6 text-[12px] font-normal nav-category">
+            <div className="lg:mt-6 text-sm font-normal nav-category">
                 <div className={`ps-3 bg-white overflow-hidden lg:bg-transparent lg:h-max flex flex-col lg:flex-row justify-between
                 ${showCategories ? "h-[300px]" : "h-0"} transition-all duration-500
                 `}>
-                    <div className="block lg:hidden mt-5 mb-3 grid grid-cols-3 gap-x-4 text-sm">
+                    <div className="block lg:hidden mt-5 mb-3 grid sm:grid-cols-3 gap-y-4 ms-5 sm:ms-0 sm:gap-x-4 text-sm">
                         <Link to={"login"} className="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
                                 <path d="M19.7274 20.4471C19.2716 19.1713 18.2672 18.0439 16.8701 17.2399C15.4729 16.4358 13.7611 16 12 16C10.2389 16 8.52706 16.4358 7.12991 17.2399C5.73276 18.0439 4.72839 19.1713 4.27259 20.4471" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
@@ -102,7 +102,7 @@ const Navbar = (props: any) => {
                                 Cart
                                 {
                                     CartItems.length ?
-                                        <div className="absolute top-0 -right-6 rounded-full bg-red-700 px-2 text-white">
+                                        <div className="absolute -top-2 -right-8 w-7 h-7 flex items-center justify-center rounded-full bg-red-700 text-white">
                                             {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
                                         :
                                         <div></div>

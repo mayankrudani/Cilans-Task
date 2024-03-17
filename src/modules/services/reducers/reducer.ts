@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_TO_CART, UPDATE_TO_CART } from "../consts"
+import { ADD_TO_CART, REMOVE_TO_CART, UPDATE_TO_CART, GET_CART_DETAILS } from "../consts"
 import { getDiscountPercentage } from "../../components/common/product-price"
 
 const InitialState = async () => {
@@ -12,7 +12,7 @@ export default async function cartitems(state: any = InitialState(), action: any
     switch (action.type) {
 
         case ADD_TO_CART:
-            
+
             const userId = localStorage.getItem("user_id")
             const product = action.data
 
@@ -144,8 +144,11 @@ export default async function cartitems(state: any = InitialState(), action: any
                 const UpdateCartItemResult = await InitialState()
                 return UpdateCartItemResult
             }
+        case GET_CART_DETAILS:
+            const getCartDetails = await InitialState()
+            return getCartDetails;
 
         default:
-            return state
+            return state;
     }
 }

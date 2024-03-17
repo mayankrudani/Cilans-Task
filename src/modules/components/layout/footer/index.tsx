@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="lg:px-44 relative my-10">
                 <div className="mx-5 lg:mx-0 text-center lg:text-start grid lg:grid-cols-4 sm:grid-cols-2 gap-5">
                     <div className="flex flex-col justify-between items-between">
-                        <img src="/assets/images/CORAL.png" className="w-44 mx-auto lg:mx-0" />
+                        <img src="/assets/images/CORAL.png" className="w-20 lg:w-44 mx-auto lg:mx-0" />
                         <div className="py-5">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et

@@ -1,4 +1,12 @@
-import { ADD_TO_CART, REMOVE_TO_CART,UPDATE_TO_CART } from "../consts"
+import { ADD_TO_CART, REMOVE_TO_CART, UPDATE_TO_CART, GET_CART_DETAILS } from "../consts"
+
+export const GetCartDetails = (data: any) => {
+    return {
+        type: GET_CART_DETAILS,
+        data: data
+    }
+}
+
 export const AddToCart = (data: any) => {
     return {
         type: ADD_TO_CART,

@@ -1,11 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import bcrypt from "bcryptjs";
+import Eye from "../../../common/utils/eye";
+import EyeOff from "../../../common/utils/eye-off";
 
 
 const Login = () => {
     const [formValue, setFormValue] = useState({ contact: '', password: '' })
     const [isLoginSuccessful, setIsLoginSuccessfull] = useState<boolean>(false)
+    const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
     const [isError, setIsError] = useState<string | undefined>('')
 
     const Navigate = useNavigate()
@@ -79,14 +82,24 @@ const Login = () => {
 
                             </div>
                             <div>
-                                <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    value={formValue.password}
-                                    onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                    placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                <label
+                                    htmlFor="password"
+                                    className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                                    Password
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        type={isShowPassword ? "text" : "password"}
+                                        name="password"
+                                        id="password"
+                                        value={formValue.password}
+                                        onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
+                                        placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                    <div onClick={() => setIsShowPassword(!isShowPassword)}
+                                        className="absolute top-3.5 right-4">
+                                        {isShowPassword ? <EyeOff /> : <Eye />}
+                                    </div>
+                                </div>
                             </div>
 
                             {
