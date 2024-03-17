@@ -18,7 +18,7 @@ const Products = () => {
 
     // Get PRoduct List
     const getProductList = async () => {
-        const response = await fetch(`https://dummyjson.com/products${activeCategory === "all products" ? "" : `/category/${activeCategory}`}?limit=8&skip=${activeCategory === "all products" ? "10" : "0"}`).then(res => res.json())
+        const response = await fetch(`https://dummyjson.com/products${activeCategory === "all products" ? "" : `/category/${activeCategory}`}?limit=8&skip=${activeCategory === "all products" ? "15" : "0"}`).then(res => res.json())
         setProducts(response.products)
     }
 
@@ -35,8 +35,8 @@ const Products = () => {
             <div className="text-3xl lg:text-5xl text-center w-full font-semi">New Products</div>
 
             {/* Categories */}
-            <div className="hidden lg:flex mt-10 justify-between">
-                <div className="flex">
+            <div className="lg:flex mt-10 justify-between">
+                <div className="flex flex-wrap *:my-1">
                     {
                         categories.map((v: string, i: number) =>
                             <div
@@ -49,7 +49,7 @@ const Products = () => {
                         )
                     }
                 </div>
-                <button className="border-0 px-4 py-1 bg-black flex items-center text-white">
+                <button className="hidden lg:flex border-0 px-4 py-1 bg-black items-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none">
                         <path d="M15.7554 1H1.4053C0.745927 1 0.413209 1.60623 0.880413 1.96026L6.60074 6.29549V11.125C6.60074 11.3085 6.71893 11.4805 6.91738 11.5858L9.39181 12.8979C9.87998 13.1568 10.5598 12.8944 10.5598 12.437V6.29549L16.2803 1.96026C16.7466 1.60694 16.4161 1 15.7554 1Z" stroke="white" />
                     </svg>
