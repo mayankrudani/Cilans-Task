@@ -31,9 +31,8 @@ const Products = () => {
     }, [])
 
     return (
-
-        <div id="newProduct" className="px-10 lg:px-20 py-10">
-            <div className="text-5xl text-center w-full font-semi">New Products</div>
+        <div id="newProduct" className="px-5 lg:px-20 py-10">
+            <div className="text-3xl lg:text-5xl text-center w-full font-semi">New Products</div>
 
             {/* Categories */}
             <div className="hidden lg:flex mt-10 justify-between">
@@ -47,8 +46,8 @@ const Products = () => {
                             >
                                 {v}
                             </div>
-                        )}
-
+                        )
+                    }
                 </div>
                 <button className="border-0 px-4 py-1 bg-black flex items-center text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none">
@@ -62,13 +61,13 @@ const Products = () => {
 
             {/* Product List */}
             <div>
-                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-5">
+                <div className="mt-10 capitalize grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-5">
                     {
                         products.length ?
                             products.map((v: any, i: number) => {
                                 return (
                                     <Link className="group border-b pb-1 border-black sm:border-b-0" to={`product/${v.id}`} key={i}>
-                                        <div className="relative overflow-hidden ">
+                                        <div className="relative overflow-hidden">
                                             <img src={v.thumbnail} className="mx-auto h-44 object-cover" />
                                             <div className={`bg-black py-2 px-3 absolute -bottom-10 left-0 right-0 flex justify-between items-center group-hover:bottom-0 tarnsition-all duration-300`}>
                                                 <div className="flex items-center">

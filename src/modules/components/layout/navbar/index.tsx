@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = (props: any) => {
     const [showCategories, setShowCategories] = useState<boolean>(false)
     const [CartItems, setCartItems] = useState<any>([])
-    
+
     useEffect(() => {
         Promise.resolve(props.data).then(res => setCartItems(res?.cart_items ? res.cart_items : []))
     }, [props])
@@ -39,7 +39,7 @@ const Navbar = (props: any) => {
                         </svg>
                     </div>
 
-                    <button type="button" onClick={() => setShowCategories(!showCategories)} className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                    <button type="button" onClick={() => setShowCategories(!showCategories)} className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                         </svg>
@@ -76,11 +76,11 @@ const Navbar = (props: any) => {
                     </Link>
                 </div>
             </div>
-            <div className="lg:mt-6 text-sm">
+            <div className="lg:mt-6 text-[12px] font-normal nav-category">
                 <div className={`ps-3 bg-white overflow-hidden lg:bg-transparent lg:h-max flex flex-col lg:flex-row justify-between
                 ${showCategories ? "h-[300px]" : "h-0"} transition-all duration-500
                 `}>
-                    <div className=" block lg:hidden mt-3 grid grid-cols-3 gap-x-4 text-sm">
+                    <div className="block lg:hidden mt-5 mb-3 grid grid-cols-3 gap-x-4 text-sm">
                         <Link to={"login"} className="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
                                 <path d="M19.7274 20.4471C19.2716 19.1713 18.2672 18.0439 16.8701 17.2399C15.4729 16.4358 13.7611 16 12 16C10.2389 16 8.52706 16.4358 7.12991 17.2399C5.73276 18.0439 4.72839 19.1713 4.27259 20.4471" stroke="#0B0B0B" strokeWidth="2" strokeLinecap="round" />
@@ -100,13 +100,13 @@ const Navbar = (props: any) => {
                             </svg>
                             <span className="ms-1 relative">
                                 Cart
-                            {
-                            CartItems.length ?
-                                <div className="absolute top-0 -right-6 rounded-full bg-red-700 px-2 text-white">
-                                    {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
-                                :
-                                <div></div>
-                        }
+                                {
+                                    CartItems.length ?
+                                        <div className="absolute top-0 -right-6 rounded-full bg-red-700 px-2 text-white">
+                                            {CartItems.reduce((init: any, curr: any) => (init + curr.quantity), 0)}</div>
+                                        :
+                                        <div></div>
+                                }
                             </span>
                         </Link>
                     </div>

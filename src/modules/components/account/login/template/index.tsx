@@ -26,13 +26,13 @@ const Login = () => {
                 }
             }
             if (!user.length) {
-                setIsError("invalid login credential")
+                setIsError("Invalid login credential")
                 return;
             }
 
             const isSamePassoword = bcrypt.compareSync(password, user[0].password);
             if (!isSamePassoword) {
-                setIsError("Worng password, Please enter Currect password ")
+                setIsError("Wrong password, Please enter currect password")
                 return;
             }
 

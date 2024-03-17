@@ -19,7 +19,7 @@ const CreateAccount = () => {
         const localStorageData: any = localStorage.getItem("users") || []
         const userData = localStorageData.length ? JSON.parse(localStorageData) : localStorageData
 
-        // check same contact numberr is not present
+        // Check Same Contact number is not present
         if (userData?.length) {
             let isContact = false
             for (let i = 0; i < userData.length; i++) {
@@ -29,12 +29,12 @@ const CreateAccount = () => {
                 }
             }
             if (isContact) {
-                setIsError("This contact user is already present,Please add another contact")
+                setIsError("This contact user is already present, Please add another contact")
                 return;
             }
         }
 
-        // checck both password is same or not
+        // Check both password is same or not
         if (!(password === confirmPassword)) {
             setIsError("Please add same password")
             return;
@@ -56,41 +56,54 @@ const CreateAccount = () => {
             setIsSuccess(false)
             Navigate("/login")
         }, 1200);
-
     }
 
     return (
-        <div className="bg-[#F1F1F1] relative pt-10">
+        <div className="bg-[#F1F1F1]">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                        <h1 className="text-xl font-bold leading-tight text-gray-900 md:text-2xl">
                             Create An Account
                         </h1>
                         <form className="space-y-4 md:space-y-4" onSubmit={HandlesSubmit}>
                             <div className="grid grid-cols-2 gap-x-3">
                                 <div>
-                                    <label htmlFor="name" className="block mb-1 text-sm font-medium text-gray-900">Name</label>
-                                    <input type="text"
+                                    <label htmlFor="name" className="block mb-1 text-sm font-medium text-gray-900">
+                                        Name
+                                        <span className="text-red-600"> *</span>
+                                    </label>
+
+                                    <input
+                                        type="text"
                                         name="name"
                                         id="name"
                                         value={formValue.name}
                                         onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Joy" required />
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                        placeholder="Enter Name" required />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900">Your email</label>
+                                    <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900">
+                                        Your Email
+                                        <span className="text-red-600"> *</span>
+                                    </label>
                                     <input
                                         type="email"
                                         name="email"
                                         id="email"
                                         value={formValue.email}
                                         onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@company.com" required />
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                        placeholder="example@gmail.com"
+                                        required />
                                 </div>
                             </div>
                             <div>
-                                <label htmlFor="contact" className="block mb-1 text-sm font-medium text-gray-900">Contact No</label>
+                                <label htmlFor="contact" className="block mb-1 text-sm font-medium text-gray-900">
+                                    Contact No
+                                    <span className="text-red-600"> *</span>
+                                </label>
                                 <input
                                     type="number"
                                     name="contact"
@@ -98,20 +111,30 @@ const CreateAccount = () => {
                                     max={9999999999}
                                     value={formValue.contact}
                                     onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="1234567890" required />
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                    placeholder="1234567890"
+                                    required />
                             </div>
                             <div>
-                                <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                                    Password
+                                    <span className="text-red-600"> *</span>
+                                </label>
                                 <input
                                     type="password"
                                     name="password"
                                     id="password"
                                     value={formValue.password}
                                     onChange={(e) => setFormValue({ ...formValue, [e.target.name]: e.target.value })}
-                                    placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                    placeholder="••••••••"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required />
                             </div>
                             <div>
-                                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+                                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Confirm Password
+                                    <span className="text-red-600"> *</span>
+                                </label>
                                 <input
                                     type="password"
                                     name="confirmPassword"
@@ -142,7 +165,7 @@ const CreateAccount = () => {
                             }
                             <button type="submit" className="w-full text-black bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account? 
+                                Already have an account?
                                 <Link to={"/login"} className="font-medium text-primary-600 hover:underline dark:text-primary-500">
                                     {" "}Login here
                                 </Link>

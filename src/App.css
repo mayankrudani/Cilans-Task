@@ -14,3 +14,7 @@ input[type="number"]::-webkit-outer-spin-button {
 body {
     font-family: "Roboto", sans-serif;
 }
+
+.nav-category{
+    font-family: "Poppins", sans-serif;
+}
