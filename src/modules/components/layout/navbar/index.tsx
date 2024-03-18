@@ -76,7 +76,7 @@ const Navbar = (props: any) => {
                     </Link>
                 </div>
             </div>
-            <div className="lg:mt-6 text-sm font-normal nav-category">
+            <div  onClick={() => setShowCategories(false)} className="lg:mt-6 text-sm font-normal nav-category">
                 <div className={`ps-3 bg-white overflow-hidden lg:bg-transparent lg:h-max flex flex-col lg:flex-row justify-between
                 ${showCategories ? "h-[300px]" : "h-0"} transition-all duration-500
                 `}>
