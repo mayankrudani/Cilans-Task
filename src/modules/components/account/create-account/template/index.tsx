@@ -64,7 +64,7 @@ const CreateAccount = () => {
     return (
         <div className="bg-[#F1F1F1]">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight text-gray-900 md:text-2xl">
                             Create New Account
@@ -162,7 +162,7 @@ const CreateAccount = () => {
                                     <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" required />
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <span className="font-medium text-primary-600 hover:underline">Terms and Conditions</span></label>
+                                    <label htmlFor="terms" className="font-light text-gray-900">I accept the <span className="font-medium text-primary-600 hover:underline">Terms and Conditions</span></label>
                                 </div>
                             </div>
                             {
@@ -178,9 +178,9 @@ const CreateAccount = () => {
                                 </div>
                             }
                             <button type="submit" className="w-full text-black bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create an account</button>
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                            <p className="text-sm font-light text-gray-900">
                                 Already have an account?
-                                <Link to={"/login"} className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                                <Link to={"/login"} className="font-medium text-primary-600 hover:underline">
                                     {" "}Login here
                                 </Link>
                             </p>

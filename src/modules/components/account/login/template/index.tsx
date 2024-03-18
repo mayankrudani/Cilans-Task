@@ -62,7 +62,7 @@ const Login = () => {
     return (
         <section className="bg-[#F1F1F1] relative">
             <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-20">
-                <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                             Login
@@ -121,9 +121,9 @@ const Login = () => {
                                 Login
                             </button>
 
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                            <p className="text-sm font-light text-gray-900">
                                 Create new account?
-                                <Link to={"/create-account"} className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                                <Link to={"/create-account"} className="font-medium text-primary-600 hover:underline">
                                     {" "}Sign in
                                 </Link>
                             </p>
